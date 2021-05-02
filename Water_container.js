@@ -18,3 +18,32 @@ var maxArea = function(height)
     }
     return water
 };
+//================================================
+class Solution 
+{
+    public int maxArea(int[] height)
+    {
+        int ans=0;
+       int left =0;
+        int right=height.length-1;
+        while(left<=right)
+        {
+               int h=Math.min(height[left],height[right]);
+               int width=right-left;
+               //System.out.println(h);
+               ans=Math.max(ans,h*width);
+             //  System.out.println(ans);
+             if(height[right]>height[left])
+        {
+            left++;
+        }
+        else
+        {
+            right--;
+        }
+          
+       }
+       
+        return ans;
+    }
+}

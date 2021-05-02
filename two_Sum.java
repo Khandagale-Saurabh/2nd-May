@@ -28,3 +28,29 @@ class Solution {
         return a2;
     }
 }
+
+/* o(1) */
+
+class Solution {
+    public int[] twoSum(int[] a, int target)
+    {
+     HashMap<Integer,Integer> h1=new HashMap<>();
+        for(int i=0;i<a.length;i++)
+        {
+            h1.put(a[i],i);
+        }
+        
+       for(int i=0;i<a.length;i++)
+        {
+          int num=a[i];
+         int rem=target-num;
+        if(h1.containsKey(rem))
+        {
+        int index=h1.get(rem);
+            if(index==i)continue;
+        return new int[] {i,index};
+        }
+        }
+        return new int[]{};
+    }
+}
